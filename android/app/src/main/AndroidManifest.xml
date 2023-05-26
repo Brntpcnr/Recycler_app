@@ -4,7 +4,14 @@
         android:label="recycle_app"
         android:name="${applicationName}"
         android:icon="@mipmap/ic_launcher">
-        <activity
+
+       <meta-data android:name="com.google.android.geo.API_KEY"
+           android:value="AIzaSyAJQN63vaYKjmIeFvtzDf8uT6V6_8BeHsE"/>
+
+
+
+
+       <activity
             android:name=".MainActivity"
             android:exported="true"
             android:launchMode="singleTop"
