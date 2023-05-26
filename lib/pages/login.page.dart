@@ -1,17 +1,22 @@
 import 'package:flutter/material.dart';
-import 'components/my_textfield.dart';
-import 'components/my_button.dart';
+import '../components/my_textfield.dart';
+import '../components/my_button.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 
 class LoginPage extends StatelessWidget {
   LoginPage({super.key});
 
    //text editing controllers
-   final usernameController = TextEditingController();
+   final emailController = TextEditingController();
    final passwordController = TextEditingController();
 
    //sign user in
-   void signUserIn() {}
+   void signUserIn() async {
+     await FirebaseAuth.instance.signInWithEmailAndPassword(
+         email: emailController.text,
+         password: passwordController.text,
+      );
+   }
 
   @override
   Widget build(BuildContext context) {
@@ -65,11 +70,11 @@ class LoginPage extends StatelessWidget {
               SizedBox(
                 height: 25,
               ),
-
+            //email textfield
             Padding(
             padding: const EdgeInsets.symmetric(horizontal: 25.0),
               child: TextField(
-              controller: usernameController,
+              controller: emailController,
                 obscureText: false,
                 decoration: InputDecoration(
                   prefixIcon: Icon(Icons.mail),
@@ -81,7 +86,7 @@ class LoginPage extends StatelessWidget {
                 ),
                 fillColor: Colors.grey.shade200,
                     filled: true,
-                    hintText: "Username",
+                    hintText: "Email",
                     hintStyle: TextStyle(color: Colors.grey[500])),
               ),
               ),
@@ -89,7 +94,7 @@ class LoginPage extends StatelessWidget {
               SizedBox(
                   height: 5
               ),
-
+              //password textfield
               Padding(
                 padding: const EdgeInsets.symmetric(horizontal: 25.0),
                 child: TextField(
