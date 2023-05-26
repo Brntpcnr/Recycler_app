@@ -3,19 +3,63 @@ import '../components/my_textfield.dart';
 import '../components/my_button.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 
-class LoginPage extends StatelessWidget {
-  LoginPage({super.key});
+class LoginPage extends StatefulWidget {
+  final Function()? onTap;
+  const LoginPage({super.key, required this.onTap});
 
+  @override
+  State<LoginPage> createState() => _LoginPageState();
+}
+
+class _LoginPageState extends State<LoginPage> {
    //text editing controllers
    final emailController = TextEditingController();
    final passwordController = TextEditingController();
 
    //sign user in
    void signUserIn() async {
-     await FirebaseAuth.instance.signInWithEmailAndPassword(
+   //show loading circle
+   showDialog(
+     context: context,
+     builder: (context) {
+     return const Center(
+       child: CircularProgressIndicator(),
+     );
+   },
+   );
+
+   // try signing in
+     try{
+       await FirebaseAuth.instance.signInWithEmailAndPassword(
          email: emailController.text,
          password: passwordController.text,
-      );
+       );
+       //pop the loading circle
+       Navigator.pop(context);
+     } on FirebaseAuthException catch (e) {
+       //pop the loading circle
+       Navigator.pop(context);
+       //show error message
+       showErrorMessage(e.code);
+     }
+   }
+   
+   //error message to user
+   void showErrorMessage(String message){
+     showDialog(
+       context: context,
+       builder: (context){
+       return AlertDialog(
+         backgroundColor: Colors.green,
+         title: Center(
+             child: Text(
+                 message,
+                 style: TextStyle(color:Colors.white),
+             ),
+         ),
+       );
+       },
+     );
    }
 
   @override
@@ -133,6 +177,7 @@ class LoginPage extends StatelessWidget {
               ),
 
               MyButton(
+                text: "Sign In",
                 onTap: signUserIn,
               ),
 
@@ -148,11 +193,14 @@ class LoginPage extends StatelessWidget {
                     style: TextStyle(color: Colors.grey[700]),
                   ),
                   SizedBox(width: 4),
-                  Text(
-                    'Register now',
-                    style: TextStyle(
-                      color: Colors.green[800],
-                      fontWeight: FontWeight.bold,
+                  GestureDetector(
+                    onTap: widget.onTap,
+                    child: Text(
+                      'Register now',
+                      style: TextStyle(
+                        color: Colors.green[800],
+                        fontWeight: FontWeight.bold,
+                      ),
                     ),
                   ),
                 ],

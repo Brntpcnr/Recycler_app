@@ -3,6 +3,7 @@ import 'package:flutter/material.dart';
 import 'package:recycle_app/pages/login.page.dart';
 import 'home_page.dart';
 import 'package:recycle_app/main.dart';
+import 'login_or_register_page.dart';
 
 class AuthPage extends StatelessWidget {
   const AuthPage({super.key});
@@ -17,8 +18,9 @@ class AuthPage extends StatelessWidget {
           if (snapshot.hasData){
             return HomePage();
           }
+          //user is NOT logged in
           else {
-            return LoginPage();
+            return LoginOrRegisterPage();
           }
         },
       ),
