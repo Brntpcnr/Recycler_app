@@ -9,6 +9,7 @@ import 'firebase_options.dart';
 //mitch@gmail.com / mitch123
 //anakin@gmail.com / anakin123
 //çinar@gmail.com / çinar123
+//deno@gmail.com / deno123
 
 
 void main() async {

@@ -1,7 +1,11 @@
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
+import 'package:recycle_app/pages/gift_page.dart';
+import 'package:recycle_app/pages/notifications.dart';
 import 'auth_page.dart';
 import 'map.dart';
+import 'gift_page.dart';
+import 'notifications.dart';
 
 class HomePage extends StatelessWidget {
   HomePage({Key? key}) : super(key: key);
@@ -77,13 +81,23 @@ class HomePage extends StatelessWidget {
             IconButton(
               icon: Icon(Icons.card_giftcard),
               onPressed: () {
-                // Perform action when home button is pressed
+                Navigator.push(
+                  context,
+                  MaterialPageRoute(
+                      builder: (context) => GiftPage()
+                  ),
+                );
               },
             ),
             IconButton(
-              icon: Icon(Icons.settings),
+              icon: Icon(Icons.notifications),
               onPressed: () {
-                // Perform action when settings button is pressed
+                Navigator.push(
+                  context,
+                  MaterialPageRoute(
+                      builder: (context) => Notifications()
+                  ),
+                );
               },
             ),
             // Add more buttons as needed
