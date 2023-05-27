@@ -1,7 +1,9 @@
 import 'package:flutter/material.dart';
+import 'package:recycle_app/pages/gift_page.dart';
 import 'home_page.dart';
 import 'login.page.dart';
 import 'map.dart';
+import 'gift_page.dart';
 
 class Notifications extends StatefulWidget {
   const Notifications({Key? key}) : super(key: key);
@@ -112,6 +114,13 @@ class _NotificationsState extends State<Notifications> {
                   color: Colors.yellow[600],
                   textColor: Colors.white,
                   onPressed: () {
+
+                    Navigator.push(
+                      context,
+                      MaterialPageRoute(
+                          builder: (context) => GiftPage()
+                      ),
+                    );
                   },
                 ),
               ),
