@@ -2,7 +2,6 @@ import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
 import 'package:recycle_app/pages/gift_page.dart';
 import 'package:recycle_app/pages/notifications.dart';
-import 'auth_page.dart';
 import 'map.dart';
 import 'gift_page.dart';
 import 'notifications.dart';
@@ -50,24 +49,29 @@ class HomePage extends StatelessWidget {
             SizedBox(
               height: 50,
             ),
-            ButtonTheme(
-              minWidth: 200,
+            Container(
+              width: 160,
               height: 60,
-              child: RaisedButton(
-                shape: RoundedRectangleBorder(
-                  borderRadius: BorderRadius.circular(30)
-                ),
-                child: Text("CHECK THE MAP"),
-                color: Colors.green[600],
-                textColor: Colors.white,
-                onPressed: () {
-                  Navigator.push(
-                    context,
-                    MaterialPageRoute(
-                        builder: (context) => Maps()
+              child: ButtonTheme(
+                minWidth: 200,
+                height: 60,
+                child: ElevatedButton(
+                  style: ElevatedButton.styleFrom(
+                    shape: RoundedRectangleBorder(
+                      borderRadius: BorderRadius.circular(30.0), // Set the desired border radius
                     ),
-                  );
-                },
+                    primary: Colors.green[600], // Set the desired background color
+                  ),
+                  child: Text("CHECK THE MAP"),
+                  onPressed: () {
+                    Navigator.push(
+                      context,
+                      MaterialPageRoute(
+                          builder: (context) => Maps()
+                      ),
+                    );
+                  },
+                ),
               ),
             ),
           ],

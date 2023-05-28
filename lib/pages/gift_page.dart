@@ -1,5 +1,4 @@
 import 'dart:ui';
-
 import 'package:flutter/material.dart';
 
 class GiftPage extends StatefulWidget {
@@ -80,92 +79,113 @@ class _GiftPageState extends State<GiftPage> {
                 ),
               ),
               SizedBox(
-                height: 20,
+                height: 30,
               ),
-              FlatButton(
-                color: Colors.grey[400],
+              TextButton(
+                style: TextButton.styleFrom(
+                  backgroundColor: Colors.grey[400],
+                  primary: Colors.black, // Set the desired text color
+                ),
                 onPressed: () {
                   // Button action
                 },
                   child: Row(
+                    mainAxisAlignment: MainAxisAlignment.center,
                     children: [
                       Icon(Icons.attach_money),
-                      SizedBox(width: 8.0),
+                      SizedBox(width: 4),
                       Text('You won 40 bonus w-points'),
                       SizedBox(width: 50),
                       Text("27/05/2023")
                     ],
                   ),
               ),
-              FlatButton(
-                color: Colors.grey[300],
+              TextButton(
+                style: TextButton.styleFrom(
+                  primary: Colors.black, // Set the desired text color
+                ),
                 onPressed: () {
                   // Button action
                 },
                   child: Row(
+                    mainAxisAlignment: MainAxisAlignment.center,
                     children: [
                       Icon(Icons.attach_money),
-                      SizedBox(width: 8.0),
+                      SizedBox(width: 4),
                       Text('You won 30 bonus w-points'),
                       SizedBox(width: 50),
                       Text("25/05/2023")
                     ],
                   ),
               ),
-              FlatButton(
-                color: Colors.grey[400],
+              TextButton(
+                style: TextButton.styleFrom(
+                  backgroundColor: Colors.grey[400],
+                  primary: Colors.black, // Set the desired text color
+                ),
                 onPressed: () {
                   // Button action
                 },
                   child: Row(
+                    mainAxisAlignment: MainAxisAlignment.center,
                     children: [
                       Icon(Icons.attach_money),
-                      SizedBox(width: 8.0),
+                      SizedBox(width: 4),
                       Text('You won 50 bonus w-points'),
                       SizedBox(width: 50),
                       Text("20/05/2023")
                     ],
                   ),
               ),
-              FlatButton(
-                color: Colors.grey[300],
+              TextButton(
+                style: TextButton.styleFrom(
+                  primary: Colors.black, // Set the desired text color
+                ),
                 onPressed: () {
                   // Button action
                 },
                   child: Row(
+                    mainAxisAlignment: MainAxisAlignment.center,
                     children: [
                       Icon(Icons.attach_money),
-                      SizedBox(width: 8.0),
+                      SizedBox(width: 4),
                       Text('You won 80 bonus w-points'),
                       SizedBox(width: 50),
                       Text("19/05/2023")
                     ],
                   ),
               ),
-              FlatButton(
-                color: Colors.grey[400],
+              TextButton(
+                style: TextButton.styleFrom(
+                  backgroundColor: Colors.grey[400],
+                  primary: Colors.black, // Set the desired text color
+                ),
                 onPressed: () {
                   // Button action
                 },
                   child: Row(
+                    mainAxisAlignment: MainAxisAlignment.center,
                     children: [
                       Icon(Icons.attach_money),
-                      SizedBox(width: 8.0),
+                      SizedBox(width: 4),
                       Text('You won 70 bonus w-points'),
                       SizedBox(width: 50),
                       Text("12/05/2023")
                     ],
                   ),
               ),
-              FlatButton(
-                color: Colors.grey[300],
+              TextButton(
+                style: TextButton.styleFrom(
+                  primary: Colors.black, // Set the desired text color
+                ),
                 onPressed: () {
                   // Button action
                 },
                   child: Row(
+                    mainAxisAlignment: MainAxisAlignment.center,
                     children: [
                       Icon(Icons.attach_money),
-                      SizedBox(width: 8.0),
+                      SizedBox(width: 4),
                       Text('You won 20 bonus w-points'),
                       SizedBox(width: 50),
                       Text("09/05/2023")

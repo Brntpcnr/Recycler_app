@@ -1,7 +1,5 @@
 import 'package:flutter/material.dart';
 import 'package:recycle_app/pages/gift_page.dart';
-import 'home_page.dart';
-import 'login.page.dart';
 import 'map.dart';
 import 'gift_page.dart';
 
@@ -39,12 +37,16 @@ class _NotificationsState extends State<Notifications> {
             ),
             Container(
               width: 300,
+              height: 50,
               child: ButtonTheme(
                 minWidth: 0,
                 height: 60,
-                child: RaisedButton(
-                  shape: RoundedRectangleBorder(
-                      borderRadius: BorderRadius.circular(20)
+                child: ElevatedButton(
+                  style: ElevatedButton.styleFrom(
+                    shape: RoundedRectangleBorder(
+                      borderRadius: BorderRadius.circular(20.0), // Set the desired border radius
+                    ),
+                    primary: Colors.green[600], // Set the desired background color
                   ),
                   child: Row(
                     children: [
@@ -53,8 +55,6 @@ class _NotificationsState extends State<Notifications> {
                       Text("You disposed 3kg of waste this week"),
                     ],
                   ),
-                  color: Colors.green[600],
-                  textColor: Colors.white,
                   onPressed: () {
                   },
                 ),
@@ -65,12 +65,16 @@ class _NotificationsState extends State<Notifications> {
             ),
             Container(
               width: 300,
+              height: 50,
               child: ButtonTheme(
                 minWidth: 0,
                 height: 60,
-                child: RaisedButton(
-                  shape: RoundedRectangleBorder(
-                      borderRadius: BorderRadius.circular(20)
+                child: ElevatedButton(
+                  style: ElevatedButton.styleFrom(
+                    shape: RoundedRectangleBorder(
+                      borderRadius: BorderRadius.circular(20.0), // Set the desired border radius
+                    ),
+                    primary: Colors.green[600], // Set the desired background color
                   ),
                   child: Row(
                     children: [
@@ -79,8 +83,6 @@ class _NotificationsState extends State<Notifications> {
                       Text("There are new disposals near you!"),
                     ],
                   ),
-                  color: Colors.green[600],
-                  textColor: Colors.white,
                   onPressed: () {
                     Navigator.push(
                       context,
@@ -97,12 +99,16 @@ class _NotificationsState extends State<Notifications> {
             ),
             Container(
               width: 300,
+              height: 50,
               child: ButtonTheme(
                 minWidth: 0,
                 height: 60,
-                child: RaisedButton(
-                  shape: RoundedRectangleBorder(
-                      borderRadius: BorderRadius.circular(20)
+                child: ElevatedButton(
+                  style: ElevatedButton.styleFrom(
+                    shape: RoundedRectangleBorder(
+                      borderRadius: BorderRadius.circular(20.0), // Set the desired border radius
+                    ),
+                    primary: Colors.yellow[600], // Set the desired background color
                   ),
                   child: Row(
                     children: [
@@ -111,10 +117,7 @@ class _NotificationsState extends State<Notifications> {
                       Text("You won 40 bonus w-points"),
                     ],
                   ),
-                  color: Colors.yellow[600],
-                  textColor: Colors.white,
                   onPressed: () {
-
                     Navigator.push(
                       context,
                       MaterialPageRoute(
