@@ -10,7 +10,6 @@ import 'firebase_options.dart';
 //anakin@gmail.com / anakin123
 //çinar@gmail.com / çinar123
 //deno@gmail.com / deno123
-//samet86@gmail.com / samet123
 //dani@gmail.com / dani123
 
 
