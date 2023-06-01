@@ -120,13 +120,10 @@ class _LoginPageState extends State<LoginPage> {
               controller: emailController,
                 obscureText: false,
                 decoration: InputDecoration(
-                    border: UnderlineInputBorder(
-                      borderSide: BorderSide(color: Colors.green),
-                    ),
                   prefixIcon: Icon(Icons.mail, color: Colors.green[800]),
-                enabledBorder: const OutlineInputBorder(
-                borderSide: BorderSide(color: Colors.white),
-                ),
+                    enabledBorder: UnderlineInputBorder(
+                        borderSide: BorderSide(color: Colors.green.shade800)
+                    ),
                 focusedBorder: OutlineInputBorder(
                 borderSide: BorderSide(color: Colors.grey.shade400),
                 ),
@@ -136,7 +133,6 @@ class _LoginPageState extends State<LoginPage> {
                     hintStyle: TextStyle(color: Colors.green[800])),
               ),
               ),
-
               SizedBox(
                   height: 5
               ),
@@ -147,12 +143,9 @@ class _LoginPageState extends State<LoginPage> {
                   controller: passwordController,
                   obscureText: true,
                   decoration: InputDecoration(
-                      border: UnderlineInputBorder(
-                        borderSide: BorderSide(color: Colors.green),
-                      ),
                       prefixIcon: Icon(Icons.lock,color: Colors.green[800]),
-                      enabledBorder: const OutlineInputBorder(
-                        borderSide: BorderSide(color: Colors.white),
+                      enabledBorder: UnderlineInputBorder(
+                        borderSide: BorderSide(color: Colors.green.shade800)
                       ),
                       focusedBorder: OutlineInputBorder(
                         borderSide: BorderSide(color: Colors.grey.shade400),

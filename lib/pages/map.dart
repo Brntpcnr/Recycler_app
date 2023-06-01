@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:google_maps_flutter/google_maps_flutter.dart';
+import 'package:google_maps_flutter/google_maps_flutter.dart'; //35.1457, 33.9071
 
 class Maps extends StatefulWidget {
   const Maps({Key? key}) : super(key: key);
@@ -11,11 +11,18 @@ class Maps extends StatefulWidget {
 class _MapsState extends State<Maps> {
   late GoogleMapController? mapController;
 
-  final LatLng _center = const LatLng(35.1457, 33.9071);
+  final LatLng markerLocation = LatLng(35.1457, 33.9071); // Coordinates for marker location
 
-  void _onMapCreated(GoogleMapController controller) {
-    mapController = controller;
-  }
+  Set<Marker> markers = {
+    Marker(
+      markerId: MarkerId('marker_1'),
+      position: LatLng(35.1457, 33.9071), // Coordinates for marker location
+      infoWindow: InfoWindow(
+        title: 'Marker Title',
+        snippet: 'Marker Snippet',
+      ),
+    ),
+  };
 
   @override
   Widget build(BuildContext context) {
@@ -26,12 +33,16 @@ class _MapsState extends State<Maps> {
         title: Center(child: Text('MAP')),
       ),
       body: GoogleMap(
-        onMapCreated: _onMapCreated,
         initialCameraPosition: CameraPosition(
-          target: _center,
-          zoom: 15.0,
+          target: markerLocation,
+          zoom: 14.5,
         ),
+        markers: markers,
+        onMapCreated: (GoogleMapController controller) {
+          mapController = controller;
+        },
       ),
     );
   }
+
 }

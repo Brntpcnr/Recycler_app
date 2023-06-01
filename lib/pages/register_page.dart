@@ -1,5 +1,4 @@
 import 'package:flutter/material.dart';
-import '../components/my_textfield.dart';
 import '../components/my_button.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 
@@ -129,17 +128,17 @@ class _RegisterPageState extends State<RegisterPage> {
                 controller: emailController,
                 obscureText: false,
                 decoration: InputDecoration(
-                    prefixIcon: Icon(Icons.mail),
-                    enabledBorder: const OutlineInputBorder(
-                      borderSide: BorderSide(color: Colors.white),
+                    prefixIcon: Icon(Icons.mail, color: Colors.green[800]),
+                    enabledBorder: UnderlineInputBorder(
+                        borderSide: BorderSide(color: Colors.green.shade800)
                     ),
                     focusedBorder: OutlineInputBorder(
                       borderSide: BorderSide(color: Colors.grey.shade400),
                     ),
-                    fillColor: Colors.grey.shade200,
+                    fillColor: Colors.white,
                     filled: true,
                     hintText: "Email",
-                    hintStyle: TextStyle(color: Colors.grey[500])),
+                    hintStyle: TextStyle(color: Colors.green[800])),
               ),
             ),
 
@@ -154,17 +153,17 @@ class _RegisterPageState extends State<RegisterPage> {
                 controller: passwordController,
                 obscureText: true,
                 decoration: InputDecoration(
-                    prefixIcon: Icon(Icons.lock),
-                    enabledBorder: const OutlineInputBorder(
-                      borderSide: BorderSide(color: Colors.white),
+                    prefixIcon: Icon(Icons.lock, color: Colors.green[800]),
+                    enabledBorder: UnderlineInputBorder(
+                        borderSide: BorderSide(color: Colors.green.shade800)
                     ),
                     focusedBorder: OutlineInputBorder(
                       borderSide: BorderSide(color: Colors.grey.shade400),
                     ),
-                    fillColor: Colors.grey.shade200,
+                    fillColor: Colors.white,
                     filled: true,
                     hintText: "Password",
-                    hintStyle: TextStyle(color: Colors.grey[500])),
+                    hintStyle: TextStyle(color: Colors.green[800])),
               ),
             ),
 
@@ -179,22 +178,22 @@ class _RegisterPageState extends State<RegisterPage> {
                 controller: confirmPasswordController,
                 obscureText: true,
                 decoration: InputDecoration(
-                    prefixIcon: Icon(Icons.lock),
-                    enabledBorder: const OutlineInputBorder(
-                      borderSide: BorderSide(color: Colors.white),
+                    prefixIcon: Icon(Icons.lock, color: Colors.green[800]),
+                    enabledBorder: UnderlineInputBorder(
+                        borderSide: BorderSide(color: Colors.green.shade800)
                     ),
                     focusedBorder: OutlineInputBorder(
                       borderSide: BorderSide(color: Colors.grey.shade400),
                     ),
-                    fillColor: Colors.grey.shade200,
+                    fillColor: Colors.white,
                     filled: true,
                     hintText: "Confirm Password",
-                    hintStyle: TextStyle(color: Colors.grey[500])),
+                    hintStyle: TextStyle(color: Colors.green[800])),
               ),
             ),
 
             SizedBox(
-              height: 25,
+              height: 30,
             ),
 
             MyButton(
