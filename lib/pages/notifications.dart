@@ -26,7 +26,7 @@ class _NotificationsState extends State<Notifications> {
               ),
             ),
             SizedBox(
-              height: 10,
+              height: 20,
             ),
             Center(
               child: Text("NOTIFICATIONS", style: TextStyle(fontSize: 20, fontWeight: FontWeight.bold, color: Colors.green[800])
@@ -132,7 +132,7 @@ class _NotificationsState extends State<Notifications> {
               height: 30,
             ),
             Center(
-              child: Image.asset("assets/truck.png", height: 250, width: 250),
+              child: Image.asset("assets/bus.png", height: 250, width: 250),
             ),
           ],
             ),

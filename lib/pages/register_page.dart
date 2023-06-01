@@ -88,12 +88,12 @@ class _RegisterPageState extends State<RegisterPage> {
                 children: [
                   Expanded(
                     child: Text(
-                      'RECYCLER',
+                      'WASP',
                       textAlign: TextAlign.start, style: TextStyle(fontWeight: FontWeight.bold, color: Colors.green[900], fontSize: 20),
                     ),
                   ),
                   Image.asset(
-                    'assets/w.png',
+                    'assets/worldd.png',
                     width: 100,
                     height: 100,
                   ),
@@ -104,7 +104,7 @@ class _RegisterPageState extends State<RegisterPage> {
               padding: const EdgeInsets.fromLTRB(10, 0, 0, 0),
               child: Row(
                 children: [
-                  Image.asset("assets/recyclingman.png", height: 250, width: 250),
+                  Image.asset("assets/man.png", height: 250, width: 250),
                 ],
               ),
             ),

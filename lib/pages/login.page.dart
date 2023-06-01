@@ -79,12 +79,12 @@ class _LoginPageState extends State<LoginPage> {
                   children: [
                     Expanded(
                       child: Text(
-                        'RECYCLER',
+                        'WASP',
                         textAlign: TextAlign.start, style: TextStyle(fontWeight: FontWeight.bold, color: Colors.green[900], fontSize: 20),
                       ),
                     ),
                     Image.asset(
-                      'assets/w.png',
+                      'assets/worldd.png',
                       width: 100,
                       height: 100,
                     ),
@@ -95,7 +95,7 @@ class _LoginPageState extends State<LoginPage> {
                 padding: const EdgeInsets.fromLTRB(10, 0, 0, 0),
                 child: Row(
                   children: [
-                    Image.asset("assets/recyclingman.png", height: 250, width: 250),
+                    Image.asset("assets/man.png", height: 250, width: 250),
                   ],
                 ),
               ),
@@ -120,17 +120,20 @@ class _LoginPageState extends State<LoginPage> {
               controller: emailController,
                 obscureText: false,
                 decoration: InputDecoration(
-                  prefixIcon: Icon(Icons.mail),
+                    border: UnderlineInputBorder(
+                      borderSide: BorderSide(color: Colors.green),
+                    ),
+                  prefixIcon: Icon(Icons.mail, color: Colors.green[800]),
                 enabledBorder: const OutlineInputBorder(
                 borderSide: BorderSide(color: Colors.white),
                 ),
                 focusedBorder: OutlineInputBorder(
                 borderSide: BorderSide(color: Colors.grey.shade400),
                 ),
-                fillColor: Colors.grey.shade200,
+                fillColor: Colors.white,
                     filled: true,
                     hintText: "Email",
-                    hintStyle: TextStyle(color: Colors.grey[500])),
+                    hintStyle: TextStyle(color: Colors.green[800])),
               ),
               ),
 
@@ -144,17 +147,20 @@ class _LoginPageState extends State<LoginPage> {
                   controller: passwordController,
                   obscureText: true,
                   decoration: InputDecoration(
-                      prefixIcon: Icon(Icons.lock),
+                      border: UnderlineInputBorder(
+                        borderSide: BorderSide(color: Colors.green),
+                      ),
+                      prefixIcon: Icon(Icons.lock,color: Colors.green[800]),
                       enabledBorder: const OutlineInputBorder(
                         borderSide: BorderSide(color: Colors.white),
                       ),
                       focusedBorder: OutlineInputBorder(
                         borderSide: BorderSide(color: Colors.grey.shade400),
                       ),
-                      fillColor: Colors.grey.shade200,
+                      fillColor: Colors.white,
                       filled: true,
                       hintText: "Password",
-                      hintStyle: TextStyle(color: Colors.grey[500])),
+                      hintStyle: TextStyle(color: Colors.green[800])),
                 ),
               ),
 
@@ -176,7 +182,7 @@ class _LoginPageState extends State<LoginPage> {
               ),
 
               MyButton(
-                text: "Sign In",
+                text: "Login",
                 onTap: signUserIn,
               ),
 
