@@ -30,7 +30,7 @@ class _MapsState extends State<Maps> {
       appBar: AppBar(
         automaticallyImplyLeading: false,
         backgroundColor: Colors.green[800],
-        title: Center(child: Text('MAP')),
+        title: Center(child: Text('CONTAINER MAP')),
       ),
       body: GoogleMap(
         initialCameraPosition: CameraPosition(
