@@ -18,8 +18,24 @@ class _MapsState extends State<Maps> {
       markerId: MarkerId('marker_1'),
       position: LatLng(35.1457, 33.9071), // Coordinates for marker location
       infoWindow: InfoWindow(
-        title: 'Marker Title',
-        snippet: 'Marker Snippet',
+        title: 'Container Area',
+        snippet: 'Glass Container',
+      ),
+    ),
+    Marker(
+      markerId: MarkerId('marker_2'),
+      position: LatLng(35.141698818730546, 33.90217148488927), // Coordinates for marker location
+      infoWindow: InfoWindow(
+        title: 'Container Area',
+        snippet: 'Metal Container',
+      ),
+    ),
+    Marker(
+      markerId: MarkerId('marker_3'),
+      position: LatLng(35.1450652238407, 33.90509910700379), // Coordinates for marker location
+      infoWindow: InfoWindow(
+        title: 'Container Area',
+        snippet: 'Plastic Container',
       ),
     ),
   };
