@@ -41,8 +41,9 @@ class _RegisterPageState extends State<RegisterPage> {
        //show error message, passwords dont match
         showErrorMessage("Passwords don't match!");
       }
+
       //pop the loading circle
-      Navigator.pop(context);
+      //Navigator.pop(context);
     } on FirebaseAuthException catch (e) {
       //pop the loading circle
       Navigator.pop(context);
