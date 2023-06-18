@@ -1,9 +1,6 @@
 import 'package:flutter/material.dart';
 import '../components/my_button.dart';
 import 'package:firebase_auth/firebase_auth.dart';
-import 'package:cloud_firestore/cloud_firestore.dart';
-import 'package:firebase_core/firebase_core.dart';
-import '../main.dart';
 
 class RegisterPage extends StatefulWidget {
   final Function()? onTap;
@@ -37,29 +34,17 @@ class _RegisterPageState extends State<RegisterPage> {
     try{
       //check if the password is confirmed
       if (passwordController.text == confirmPasswordController.text) {
-        // Create the user in Firebase Authentication
-        UserCredential userCredential = await FirebaseAuth.instance.createUserWithEmailAndPassword(
+        await FirebaseAuth.instance.createUserWithEmailAndPassword(
           email: emailController.text,
           password: passwordController.text,
         );
-
-        // Generate the username based on the entered value or email
-        String username = usernameController.text.isNotEmpty ? usernameController.text : emailController.text.split('@')[0];
-
-        // Store the username in the Firebase database
-        CollectionReference usersRef = FirebaseFirestore.instance.collection('users');
-        await usersRef.doc(userCredential.user!.uid).set({
-          'email': emailController.text,
-          'username': username,
-        });
-
       } else{
        //show error message, passwords dont match
         showErrorMessage("Passwords don't match!");
       }
 
       //pop the loading circle
-      Navigator.pop(context);
+      //Navigator.pop(context);
     } on FirebaseAuthException catch (e) {
       //pop the loading circle
       Navigator.pop(context);
@@ -131,36 +116,40 @@ class _RegisterPageState extends State<RegisterPage> {
               padding: const EdgeInsets.symmetric(horizontal: 25),
               child: Row(
                 children: [
-                  Text("Register ${usernameController.text.isNotEmpty ? usernameController.text : emailController.text.split('@')[0]}", style: TextStyle(fontSize: 20, fontWeight: FontWeight.bold, color: Colors.green[800]) ),
+                  Text("Register", style: TextStyle(fontSize: 20, fontWeight: FontWeight.bold, color: Colors.green[800]) ),
                 ],
               ),
             ),
             SizedBox(
               height: 25,
             ),
-            //email textfield
+
+            //username textfield
             Padding(
               padding: const EdgeInsets.symmetric(horizontal: 25.0),
               child: TextField(
                 controller: usernameController,
                 obscureText: false,
                 decoration: InputDecoration(
-                  prefixIcon: Icon(Icons.person, color: Colors.green[800]),
-                  enabledBorder: UnderlineInputBorder(
-                    borderSide: BorderSide(color: Colors.green.shade800),
-                  ),
-                  focusedBorder: OutlineInputBorder(
-                    borderSide: BorderSide(color: Colors.grey.shade400),
-                  ),
-                  fillColor: Colors.white,
-                  filled: true,
-                  hintText: "Username",
-                  hintStyle: TextStyle(color: Colors.green[800]),
-                ),
+                    prefixIcon: Icon(Icons.person, color: Colors.green[800]),
+                    enabledBorder: UnderlineInputBorder(
+                        borderSide: BorderSide(color: Colors.green.shade800)
+                    ),
+                    focusedBorder: OutlineInputBorder(
+                      borderSide: BorderSide(color: Colors.grey.shade400),
+                    ),
+                    fillColor: Colors.white,
+                    filled: true,
+                    hintText: "Username",
+                    hintStyle: TextStyle(color: Colors.green[800])),
               ),
             ),
 
-            SizedBox(height: 5),
+            SizedBox(
+                height: 5
+            ),
+
+            //email textfield
             Padding(
               padding: const EdgeInsets.symmetric(horizontal: 25.0),
               child: TextField(

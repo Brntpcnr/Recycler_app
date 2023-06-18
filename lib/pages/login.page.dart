@@ -129,7 +129,7 @@ class _LoginPageState extends State<LoginPage> {
                 ),
                 fillColor: Colors.white,
                     filled: true,
-                    hintText: "Email",
+                    hintText: "Login/Email",
                     hintStyle: TextStyle(color: Colors.green[800])),
               ),
               ),

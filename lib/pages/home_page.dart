@@ -6,25 +6,13 @@ import 'package:recycle_app/pages/notifications.dart';
 import 'map.dart';
 import 'gift_page.dart';
 import 'notifications.dart';
-import 'register_page.dart';
+
 
 class HomePage extends StatelessWidget {
   HomePage({Key? key}) : super(key: key);
 
   final user = FirebaseAuth.instance.currentUser!;
   final CollectionReference usersCollection = FirebaseFirestore.instance.collection('users');
-
-  Future<String?> getUsername() async {
-    try {
-      final userSnapshot = await usersCollection.doc(user.uid).get();
-      final username = userSnapshot.get('username') as String?;
-      print('Username: $username'); // Print the retrieved username to debug
-      return username;
-    } catch (error) {
-      print('Error getting username: $error');
-      return null; // Return null or a default value in case of an error
-    }
-  }
 
   Future<void> _deleteAccount(BuildContext context) async {
     try {
@@ -40,24 +28,25 @@ class HomePage extends StatelessWidget {
       // Show error message if deletion fails
       showDialog(
         context: context,
-        builder: (ctx) => AlertDialog(
-          title: Text('Account Deleted Successfully'),
-          content: Text('Feel free to log in or register!'),
-          actions: [
-            TextButton(
-              child: Text('OK'),
-              onPressed: () {
-                Navigator.of(ctx).pop();
-              },
+        builder: (ctx) =>
+            AlertDialog(
+              title: Text('Account Deleted Successfully'),
+              content: Text('Feel free to log in or register!'),
+              actions: [
+                TextButton(
+                  child: Text('OK'),
+                  onPressed: () {
+                    Navigator.of(ctx).pop();
+                  },
+                ),
+              ],
             ),
-          ],
-        ),
       );
     }
   }
 
-  // Sign out the user
-  void signUserOut() {
+  //sign user out method
+  void signUserOut(){
     FirebaseAuth.instance.signOut();
   }
 
@@ -68,39 +57,32 @@ class HomePage extends StatelessWidget {
         backgroundColor: Colors.green[800],
         actions: [
           IconButton(
-            onPressed: signUserOut,
-            icon: Icon(Icons.logout),
-          )
+              onPressed: signUserOut,
+              icon: Icon(Icons.logout))
         ],
       ),
       body: SafeArea(
         child: Column(
           children: [
-            SizedBox(height: 15),
+            SizedBox(
+              height: 15
+            ),
             Center(
               child: CircleAvatar(
                 radius: 100,
                 backgroundImage: AssetImage("assets/unnamed.png"),
               ),
             ),
-            SizedBox(height: 25),
-            FutureBuilder<String?>(
-              future: getUsername(),
-              builder: (context, snapshot) {
-                if (snapshot.connectionState == ConnectionState.waiting) {
-                  return CircularProgressIndicator(); // Show a loading indicator while retrieving the username
-                } else if (snapshot.hasError) {
-                  return Text('Error getting username'); // Display an error message if there was an error retrieving the username
-                } else {
-                  final username = snapshot.data ?? 'No username'; // Use a fallback value if the username is null
-                  return Text(
-                    username,
-                    style: TextStyle(fontSize: 20, fontWeight: FontWeight.bold),
-                  );
-                }
-              },
+            SizedBox(
+                height: 25
             ),
-            SizedBox(height: 50),
+            Text(
+                user.email!,
+                style: TextStyle(fontSize: 20, fontWeight: FontWeight.bold),
+            ),
+            SizedBox(
+              height: 50,
+            ),
             Container(
               width: 160,
               height: 60,
@@ -118,13 +100,17 @@ class HomePage extends StatelessWidget {
                   onPressed: () {
                     Navigator.push(
                       context,
-                      MaterialPageRoute(builder: (context) => Maps()),
+                      MaterialPageRoute(
+                          builder: (context) => Maps()
+                      ),
                     );
                   },
                 ),
               ),
             ),
-            SizedBox(height: 30),
+            SizedBox(
+              height: 30,
+            ),
             Container(
               width: 160,
               height: 60,
@@ -146,7 +132,7 @@ class HomePage extends StatelessWidget {
           ],
         ),
       ),
-      bottomNavigationBar: BottomAppBar(
+        bottomNavigationBar: BottomAppBar(
         color: Colors.green[800],
         child: Row(
           mainAxisAlignment: MainAxisAlignment.spaceEvenly,
@@ -156,7 +142,9 @@ class HomePage extends StatelessWidget {
               onPressed: () {
                 Navigator.push(
                   context,
-                  MaterialPageRoute(builder: (context) => GiftPage()),
+                  MaterialPageRoute(
+                      builder: (context) => GiftPage()
+                  ),
                 );
               },
             ),
@@ -165,7 +153,9 @@ class HomePage extends StatelessWidget {
               onPressed: () {
                 Navigator.push(
                   context,
-                  MaterialPageRoute(builder: (context) => Notifications()),
+                  MaterialPageRoute(
+                      builder: (context) => Notifications()
+                  ),
                 );
               },
             ),
