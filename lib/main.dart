@@ -5,12 +5,9 @@ import 'package:firebase_auth/firebase_auth.dart';
 import 'package:firebase_core/firebase_core.dart';
 import 'firebase_options.dart';
 
-//test@gmail.com / test123
-//mitch@gmail.com / mitch123
-//anakin@gmail.com / anakin123
-//deno@gmail.com / deno123
-//dani@gmail.com / dani123
-
+//Baran26 / baran@gmail.com / baran123
+//Dani69 / dani@╗gmail.com / dani123
+//Ege26 / ege@gmail.com / ege123
 
 
 void main() async {

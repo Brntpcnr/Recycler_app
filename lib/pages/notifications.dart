@@ -6,6 +6,7 @@ import 'gift_page.dart';
 class Notifications extends StatefulWidget {
   const Notifications({Key? key}) : super(key: key);
 
+
   @override
   _NotificationsState createState() => _NotificationsState();
 }
@@ -49,6 +50,7 @@ class _NotificationsState extends State<Notifications> {
                     primary: Colors.green[600], // Set the desired background color
                   ),
                   child: Row(
+
                     children: [
                       Icon(Icons.recycling),
                       SizedBox(width: 5),
