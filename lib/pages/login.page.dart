@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import '../components/my_button.dart';
 import 'package:firebase_auth/firebase_auth.dart';
+import 'package:cloud_firestore/cloud_firestore.dart';
 
 class LoginPage extends StatefulWidget {
   final Function()? onTap;
@@ -12,7 +13,7 @@ class LoginPage extends StatefulWidget {
 
 class _LoginPageState extends State<LoginPage> {
    //text editing controllers
-   final emailController = TextEditingController();
+   final emailOrUsernameController = TextEditingController();
    final passwordController = TextEditingController();
 
    //sign user in
@@ -28,19 +29,46 @@ class _LoginPageState extends State<LoginPage> {
    );
 
    // try signing in
-     try{
-       await FirebaseAuth.instance.signInWithEmailAndPassword(
-         email: emailController.text,
+   try {
+     // Check if the user entered an email or a username
+     final String emailOrUsername = emailOrUsernameController.text;
+     final isEmail = emailOrUsername.contains('@');
+
+     UserCredential userCredential;
+     if (isEmail) {
+       // Sign in with email
+       userCredential = await FirebaseAuth.instance.signInWithEmailAndPassword(
+         email: emailOrUsername,
          password: passwordController.text,
        );
-       //pop the loading circle
-       Navigator.pop(context);
-     } on FirebaseAuthException catch (e) {
-       //pop the loading circle
-       Navigator.pop(context);
-       //show error message
-       showErrorMessage(e.code);
+     } else {
+       // Sign in with username
+       final QuerySnapshot snapshot = await FirebaseFirestore.instance
+           .collection('users')
+           .where('username', isEqualTo: emailOrUsername)
+           .limit(1)
+           .get();
+
+       if (snapshot.docs.isNotEmpty) {
+         final String email = snapshot.docs.first.get('email');
+         userCredential = await FirebaseAuth.instance.signInWithEmailAndPassword(
+           email: email,
+           password: passwordController.text,
+         );
+       } else {
+         // No user found with the entered username
+         throw FirebaseAuthException(code: 'user-not-found');
+       }
      }
+
+     // User signed in successfully, handle the login completion, e.g., navigate to the next screen.
+   } on FirebaseAuthException catch (e) {
+     // Sign in failed, show an error message
+     showErrorMessage(e.code);
+   }
+
+   // Close the loading dialog
+   Navigator.pop(context);
    }
    
    //error message to user
@@ -113,11 +141,12 @@ class _LoginPageState extends State<LoginPage> {
               SizedBox(
                 height: 25,
               ),
-            //email textfield
+
+            //email/username textfield
             Padding(
             padding: const EdgeInsets.symmetric(horizontal: 25.0),
               child: TextField(
-              controller: emailController,
+              controller: emailOrUsernameController,
                 obscureText: false,
                 decoration: InputDecoration(
                   prefixIcon: Icon(Icons.mail, color: Colors.green[800]),
@@ -129,7 +158,7 @@ class _LoginPageState extends State<LoginPage> {
                 ),
                 fillColor: Colors.white,
                     filled: true,
-                    hintText: "Login/Email",
+                    hintText: "Username/Email",
                     hintStyle: TextStyle(color: Colors.green[800])),
               ),
               ),

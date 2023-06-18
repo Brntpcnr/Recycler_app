@@ -1,6 +1,9 @@
 import 'package:flutter/material.dart';
 import '../components/my_button.dart';
 import 'package:firebase_auth/firebase_auth.dart';
+import 'package:cloud_firestore/cloud_firestore.dart';
+import 'home_page.dart';
+
 
 class RegisterPage extends StatefulWidget {
   final Function()? onTap;
@@ -34,10 +37,16 @@ class _RegisterPageState extends State<RegisterPage> {
     try{
       //check if the password is confirmed
       if (passwordController.text == confirmPasswordController.text) {
-        await FirebaseAuth.instance.createUserWithEmailAndPassword(
+        UserCredential userCredential = await FirebaseAuth.instance.createUserWithEmailAndPassword(
           email: emailController.text,
           password: passwordController.text,
         );
+        // Save the additional user details (including username) to Firestore
+        await FirebaseFirestore.instance.collection('users').doc(userCredential.user!.uid).set({
+          'username': usernameController.text,
+          'email': emailController.text,
+        });
+
       } else{
        //show error message, passwords dont match
         showErrorMessage("Passwords don't match!");
