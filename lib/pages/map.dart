@@ -11,7 +11,7 @@ class Maps extends StatefulWidget {
 class _MapsState extends State<Maps> {
   late GoogleMapController? mapController;
 
-  final LatLng markerLocation = LatLng(35.1457, 33.9071); // Coordinates for marker location
+  final LatLng markerLocation = LatLng(37.8579558732941, 27.259522941396746); // Coordinates for marker location
 
   Set<Marker> markers = {
     Marker(
