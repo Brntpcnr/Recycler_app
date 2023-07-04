@@ -51,7 +51,7 @@ class _MapsState extends State<Maps> {
       body: GoogleMap(
         initialCameraPosition: CameraPosition(
           target: markerLocation,
-          zoom: 14.5,
+          zoom: 15.5,
         ),
         markers: markers,
         onMapCreated: (GoogleMapController controller) {
