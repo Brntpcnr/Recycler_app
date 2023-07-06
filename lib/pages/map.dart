@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:google_maps_flutter/google_maps_flutter.dart'; //35.1457, 33.9071
 
+
 class Maps extends StatefulWidget {
   const Maps({Key? key}) : super(key: key);
 
@@ -45,7 +46,7 @@ class _MapsState extends State<Maps> {
     return Scaffold(
       appBar: AppBar(
         automaticallyImplyLeading: false,
-        backgroundColor: Colors.green[800],
+        backgroundColor: Colors.blue,
         title: Center(child: Text('CONTAINER MAP')),
       ),
       body: GoogleMap(
