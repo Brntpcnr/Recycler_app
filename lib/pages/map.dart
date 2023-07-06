@@ -46,7 +46,7 @@ class _MapsState extends State<Maps> {
     return Scaffold(
       appBar: AppBar(
         automaticallyImplyLeading: false,
-        backgroundColor: Colors.blue,
+        backgroundColor: Colors.green,
         title: Center(child: Text('CONTAINER MAP')),
       ),
       body: GoogleMap(
